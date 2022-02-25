@@ -52,9 +52,7 @@ export const Text = styled.p`
   margin-bottom: 25px;
 `;
 
-export const Form = styled.form``;
-
-export const FormFooter = styled.footer`
+export const Form = styled.form`
   padding-bottom: 25px;
 
   & > button {

@@ -21,7 +21,6 @@ import ModalDetails from "../../components/ModalDetails/index.jsx";
 const Dashboard = () => {
   return (
     <>
-      <ModalDetails />
       <Header>
         <TopContainer>
           <Logo>
@@ -31,7 +30,7 @@ const Dashboard = () => {
             />
           </Logo>
 
-          <Button colorSchema={"grey"} sizeSchema={"small"}>
+          <Button colorSchema={"grey"} sizeSchema={"small"} type="button">
             Sair
           </Button>
         </TopContainer>

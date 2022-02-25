@@ -8,7 +8,6 @@ import {
   Title,
   Text,
   Form,
-  FormFooter,
 } from "./index";
 import Button from "../../components/Button/index.jsx";
 import Input from "../../components/Inputs/index.jsx";
@@ -73,8 +72,6 @@ const Signup = () => {
               Cadastrar
             </Button>
           </Form>
-
-          <FormFooter></FormFooter>
         </SignupContainer>
       </Main>
     </>
