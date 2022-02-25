@@ -22,7 +22,6 @@ export const Reset = createGlobalStyle`
         margin: 0;
         padding: 0;  
         border: 0;
-        font-family: 'Inter';
         font-size: 1rem;
         vertical-align: baseline;
         text-decoration: none;

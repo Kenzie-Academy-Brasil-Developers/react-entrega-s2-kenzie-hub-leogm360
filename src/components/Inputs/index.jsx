@@ -18,7 +18,7 @@ const Input = ({ label, helper, hasEye, type, ...rest }) => {
       <Label>{label}</Label>
 
       <InputContainer>
-        <InputStyled type={visible ? "password" : type} {...rest} />
+        <InputStyled type={visible ? "text" : type} {...rest} />
 
         <Span
           onClick={(event) => setVisible((state) => !state)}

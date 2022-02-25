@@ -53,7 +53,7 @@ export const SelectStyled = styled.select`
 
 export const Span = styled.span`
   position: absolute;
-  transform: translateX(270px);
+  left: 92.5%;
 
   & > svg {
     color: var(--grey-0);

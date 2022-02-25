@@ -30,18 +30,20 @@ export const Container = styled.button`
   }};
   transition: 0.5s;
 
-  :hover {
-    background: ${(props) => {
-      switch (props.colorSchema) {
-        case "grey":
-          return "var(--grey-2)";
-        case "negative":
-          return undefined;
-        case "disabled":
-          return "var(--grey-2)";
-        default:
-          return "var(--color-primary-focus)";
-      }
-    }};
+  @media only screen and (min-width: 1024px) {
+    :hover {
+      background: ${(props) => {
+        switch (props.colorSchema) {
+          case "grey":
+            return "var(--grey-2)";
+          case "negative":
+            return undefined;
+          case "disabled":
+            return "var(--grey-2)";
+          default:
+            return "var(--color-primary-focus)";
+        }
+      }};
+    }
   }
 `;

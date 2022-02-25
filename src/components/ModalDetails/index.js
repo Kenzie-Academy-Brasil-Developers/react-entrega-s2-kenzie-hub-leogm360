@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  position: relative;
+  position: absolute;
   z-index: 99999;
   display: flex;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.1);
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(50%);
+  backdrop-filter: blur(2.5px);
+  width: 100%;
+  height: 105%;
+  box-shadow: 0 0 40px -20px rgba(0, 0, 0, 0.25);
   transition: 0.5s;
 `;
 
@@ -37,14 +38,11 @@ export const Header = styled.header`
     border-radius: 50%;
     padding: 5px;
 
-    :hover {
-      background: var(--negative);
+    @media only screen and (min-width: none) {
+      :hover {
+        background: var(--negative);
+      }
     }
-  }
-
-  & > button > svg {
-    width: 10px;
-    height: 10px;
   }
 `;
 
@@ -55,10 +53,6 @@ export const Title = styled.h2`
 
 export const Form = styled.form`
   padding: 0 15px;
-
-  & select + span {
-    transform: translateX(235px);
-  }
 `;
 
 export const Footer = styled.footer`
