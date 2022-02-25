@@ -18,7 +18,7 @@ export const Reset = createGlobalStyle`
     article, aside, canvas, details, embed, 
     figure, figcaption, footer, header, hgroup, 
     menu, nav, output, ruby, section, summary,
-    time, mark, audio, video {
+    time, mark, audio, video, input {
         margin: 0;
         padding: 0;  
         border: 0;
@@ -26,7 +26,7 @@ export const Reset = createGlobalStyle`
         font-size: 1rem;
         vertical-align: baseline;
         text-decoration: none;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
     }
     
     /* HTML5 display-role reset for older browsers */
@@ -39,7 +39,7 @@ export const Reset = createGlobalStyle`
         line-height: 1;
     }
 
-    ol, ul {
+    li {
         list-style: none;
     }
 
