@@ -1,5 +1,5 @@
 import api from "../../services/api";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -22,7 +22,7 @@ import {
 import Button from "../../components/Button/index.jsx";
 import Input from "../../components/Inputs/index.jsx";
 
-const Login = () => {
+const Login = ({ isAuthenticated, setIsAuthenticated }) => {
   const history = useHistory();
 
   const registerSchema = yup.object().shape({
@@ -49,20 +49,30 @@ const Login = () => {
         );
 
         localStorage.clear();
-        localStorage.setItem("@kenziehubtoken", response.data.token);
-
-        setTimeout(
-          () => history.push(`/dashboard/${response.data.user.id}`),
-          6000
+        localStorage.setItem(
+          "@kenziehub:token",
+          JSON.stringify(response.data.token)
         );
+        localStorage.setItem(
+          "@kenziehub:id",
+          JSON.stringify(response.data.user.id)
+        );
+
+        setTimeout(() => {
+          setIsAuthenticated(true);
+          history.push(`/dashboard/${response.data.user.id}`);
+        }, 6000);
       })
       .catch((error) => {
-        console.log(error.response.data.message);
         toast.error("E-mail ou senha inválidos!", { theme: "dark" });
       });
   };
 
-  return (
+  return isAuthenticated ? (
+    <Redirect
+      to={`/dashboard/${JSON.parse(localStorage.getItem("@kenziehub:id"))}`}
+    />
+  ) : (
     <>
       <ToastContainer />
 

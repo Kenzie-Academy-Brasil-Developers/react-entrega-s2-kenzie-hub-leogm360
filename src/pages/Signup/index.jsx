@@ -1,5 +1,5 @@
 import api from "../../services/api";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -22,7 +22,7 @@ import Button from "../../components/Button/index.jsx";
 import Input from "../../components/Inputs/index.jsx";
 import Select from "../../components/Select/index.jsx";
 
-const Signup = () => {
+const Signup = ({ isAuthenticated }) => {
   const history = useHistory();
 
   const registerSchema = yup.object().shape({
@@ -68,7 +68,11 @@ const Signup = () => {
       });
   };
 
-  return (
+  return isAuthenticated ? (
+    <Redirect
+      to={`/dashboard/${JSON.parse(localStorage.getItem("@kenziehub:id"))}`}
+    />
+  ) : (
     <>
       <ToastContainer />
 
