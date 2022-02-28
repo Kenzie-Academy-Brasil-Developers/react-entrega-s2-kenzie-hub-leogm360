@@ -4,16 +4,12 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 15px 30px 15px;
+  margin: 0 auto;
+  padding: 60px 0 30px 0;
+  max-width: 370px;
 
   & > button {
     width: 80px;
-  }
-
-  @media only screen and (min-width: 768px) {
-    margin: 0 auto;
-    padding: 60px 0 30px 0;
-    max-width: 370px;
   }
 `;
 

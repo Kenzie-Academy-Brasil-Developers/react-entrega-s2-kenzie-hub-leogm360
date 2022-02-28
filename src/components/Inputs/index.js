@@ -11,6 +11,11 @@ export const Label = styled.h2`
   color: var(--grey-0);
 `;
 
+export const SpanError = styled.span`
+  font: var(--headline);
+  color: var(--negative);
+`;
+
 export const InputContainer = styled.div`
   display: flex;
   align-items: center;

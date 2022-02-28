@@ -9,9 +9,10 @@ export const Container = styled.div`
   align-items: center;
   backdrop-filter: blur(2.5px);
   width: 100%;
-  height: 105%;
-  box-shadow: 0 0 40px -20px rgba(0, 0, 0, 0.25);
+  height: 100%;
+  box-shadow: 0px 0px 40px -20px rgba(0, 0, 0, 0.25);
   transition: 0.5s;
+  overflow: hidden;
 `;
 
 export const RegisterContainer = styled.div`
@@ -38,16 +39,16 @@ export const Header = styled.header`
     border-radius: 50%;
     padding: 5px;
 
-    @media only screen and (min-width: none) {
+    & > svg {
+      width: 10px;
+      height: 10px;
+    }
+
+    @media only screen and (min-width: 1024px) {
       :hover {
         background: var(--negative);
       }
     }
-  }
-
-  & > button > svg {
-    width: 10px;
-    height: 10px;
   }
 `;
 
@@ -57,13 +58,12 @@ export const Title = styled.h2`
 `;
 
 export const Form = styled.form`
-  padding: 0 15px;
-`;
-
-export const Footer = styled.footer`
-  padding: 0 15px 15px 15px;
+  padding: 0 15px 30px 15px;
 
   & > button {
+    margin-top: 15px;
     width: 100%;
   }
 `;
+
+export const Footer = styled.footer``;

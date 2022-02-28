@@ -11,7 +11,7 @@ export const Logo = styled.figure`
 export const LogoImage = styled.img``;
 
 export const Main = styled.main`
-  padding: 0 15px 50px 15px;
+  padding: 0 15px 0 15px;
 `;
 
 export const LoginContainer = styled.div`

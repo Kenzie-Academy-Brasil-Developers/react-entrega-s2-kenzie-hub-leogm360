@@ -1,4 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
+import { useState } from "react";
 
 import Router from "./routes/router.jsx";
 
@@ -7,13 +8,19 @@ import { RootVariables } from "./styles/root-variables.js";
 import { GlobalStyles } from "./styles/global.js";
 
 const App = () => {
+  const [token] = useState(
+    !!localStorage.getItem("@kenziehubtoken")
+      ? localStorage.getItem("@kenziehubtoken")
+      : ""
+  );
+
   return (
     <BrowserRouter>
       <Reset />
       <RootVariables />
       <GlobalStyles />
 
-      <Router />
+      <Router token={token} />
     </BrowserRouter>
   );
 };

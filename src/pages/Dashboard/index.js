@@ -87,3 +87,9 @@ export const Board = styled.ul`
   max-width: 780px;
   gap: 15px 0;
 `;
+
+export const TitleEmptyBoard = styled.h2`
+  text-align: center;
+  font: var(--title-1);
+  color: var(--grey-0);
+`;

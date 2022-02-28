@@ -1,11 +1,11 @@
 import { Container, TitleTech, TitleLevel } from "./index";
 
-const Card = ({ tech, level }) => {
+const Card = ({ title, status, ...rest }) => {
   return (
-    <Container>
-      <TitleTech>{tech}</TitleTech>
+    <Container {...rest}>
+      <TitleTech>{title}</TitleTech>
 
-      <TitleLevel>{level}</TitleLevel>
+      <TitleLevel>{status}</TitleLevel>
     </Container>
   );
 };

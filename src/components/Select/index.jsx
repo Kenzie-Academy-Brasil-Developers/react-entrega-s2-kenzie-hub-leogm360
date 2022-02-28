@@ -8,13 +8,13 @@ import {
 } from "./index";
 import { FaChevronDown } from "react-icons/fa";
 
-const Select = ({ children, label, helper }) => {
+const Select = ({ children, label, helper, name, register }) => {
   return (
     <Container>
       <Label>{label}</Label>
 
       <SelectContainer>
-        <SelectStyled>{children}</SelectStyled>
+        <SelectStyled {...register(name)}>{children}</SelectStyled>
 
         <Span>
           <FaChevronDown />

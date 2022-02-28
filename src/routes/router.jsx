@@ -4,19 +4,19 @@ import Signup from "../pages/Signup/index.jsx";
 import Login from "../pages/Login/index.jsx";
 import Dashboard from "../pages/Dashboard/index.jsx";
 
-const Router = () => {
+const Router = ({ token }) => {
   return (
     <Switch>
       <Route exact path="/">
-        <Signup />
+        <Login token={token} />
       </Route>
 
-      <Route path="/login">
-        <Login />
+      <Route path="/signup">
+        <Signup token={token} />
       </Route>
 
-      <Route path="/dashboard">
-        <Dashboard />
+      <Route path="/dashboard/:id">
+        <Dashboard token={token} />
       </Route>
     </Switch>
   );

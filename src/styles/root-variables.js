@@ -25,5 +25,10 @@ export const RootVariables = createGlobalStyle`
         --headline-bold: bold 0.75rem 'Inter';
         --headline-italic: italic normal 0.75rem 'Inter';
         --helper-text:normal 0.65rem 'Inter';
+
+        //WARNING: OVERRIDES TOASTFY DEFAULT COLOR BEHAVIOR
+        --toastify-color-dark: var(--grey-2);
+        --toastify-color-success: var(--success);
+        --toastify-color-error: var(--negative);
     }
 `;
