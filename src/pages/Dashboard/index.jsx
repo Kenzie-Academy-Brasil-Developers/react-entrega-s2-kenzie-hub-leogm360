@@ -1,6 +1,6 @@
 import api from "../../services/api";
 import { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Redirect } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import {
@@ -24,40 +24,37 @@ import { ImPlus } from "react-icons/im";
 import ModalRegister from "../../components/ModalRegister/index.jsx";
 import ModalDetails from "../../components/ModalDetails/index.jsx";
 
-const Dashboard = ({ token }) => {
+const Dashboard = ({ isAuthenticated, setIsAuthenticated }) => {
   const history = useHistory();
-
-  if (token === "") {
-    history.push("/");
-  }
 
   const params = useParams();
 
   const [user, setUser] = useState({});
   const [tech, setTech] = useState({});
+  const [token] = useState(
+    JSON.parse(localStorage.getItem("@kenziehub:token"))
+  );
   const [isModalRegisterOpen, setIsModalRegisterOpen] = useState(false);
   const [isModalDetailsOpen, setIsModalDetailsOpen] = useState(false);
 
   const handleUser = (id) => {
     api
       .get(`/users/${id}`)
-      .then((response) => setUser(() => response.data))
+      .then((response) => setUser(response.data))
       .catch((error) => console.log(error.response.data.message));
   };
 
   const handleLogout = () => {
     localStorage.clear();
 
+    setIsAuthenticated(false);
+
     history.push("/");
   };
 
-  useEffect(() => {
-    handleUser(params.id);
-  }, [params.id]);
+  useEffect(() => handleUser(params.id), [params.id]);
 
-  useEffect(() => user, [user]);
-
-  return (
+  return isAuthenticated ? (
     <>
       {isModalRegisterOpen && (
         <ModalRegister
@@ -152,6 +149,8 @@ const Dashboard = ({ token }) => {
         </Main>
       </motion.div>
     </>
+  ) : (
+    <Redirect to="/" />
   );
 };
 
