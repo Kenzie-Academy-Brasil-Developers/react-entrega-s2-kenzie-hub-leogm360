@@ -61,7 +61,7 @@ const Signup = ({ isAuthenticated }) => {
           { theme: "dark" }
         );
 
-        setTimeout(() => history.push("/login"), 5500);
+        setTimeout(() => history.push("/"), 6000);
       })
       .catch((error) => {
         toast.error("O e-mail já existe!", { theme: "dark" });

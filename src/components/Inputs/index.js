@@ -35,7 +35,7 @@ export const InputStyled = styled.input`
   font-family: "Inter";
   font-size: 1rem;
   background: var(--grey-2);
-  color: var(--grey-0);
+  color: ${(props) => (!!props.disabled ? "var(--grey-1)" : "var(--grey-0)")};
   border: none;
   width: 100%;
 
