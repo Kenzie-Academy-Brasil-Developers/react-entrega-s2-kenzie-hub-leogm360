@@ -25,10 +25,6 @@ const ModalDetails = ({
   token,
 }) => {
   const detailsSchema = yup.object().shape({
-    title: yup
-      .string()
-      .required("Campo obrigatório!")
-      .oneOf([tech.title], "Confirme a tecnologia!"),
     status: yup.string().required("Campo obrigatório!"),
   });
 
@@ -102,7 +98,8 @@ const ModalDetails = ({
             name={"title"}
             register={register}
             errors={errors}
-            placeholder="Tecnologia*"
+            value={tech.title}
+            disabled
           />
 
           <Select label={"Status"} name={"status"} register={register}>

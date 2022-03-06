@@ -23,6 +23,7 @@ import Card from "../../components/Card/index.jsx";
 import { ImPlus } from "react-icons/im";
 import ModalRegister from "../../components/ModalRegister/index.jsx";
 import ModalDetails from "../../components/ModalDetails/index.jsx";
+import { toast } from "react-toastify";
 
 const Dashboard = ({ isAuthenticated, setIsAuthenticated }) => {
   const history = useHistory();
@@ -37,11 +38,16 @@ const Dashboard = ({ isAuthenticated, setIsAuthenticated }) => {
   const [isModalRegisterOpen, setIsModalRegisterOpen] = useState(false);
   const [isModalDetailsOpen, setIsModalDetailsOpen] = useState(false);
 
-  const handleUser = (id) => {
+  const handleUser = (id, cancel) => {
     api
       .get(`/users/${id}`)
       .then((response) => setUser(response.data))
-      .catch((error) => console.log(error.response.data.message));
+      .catch((error) =>
+        toast.error(
+          "Não foi possível carregar suas tecnologias, tente novamente!",
+          { theme: "dark" }
+        )
+      );
   };
 
   const handleLogout = () => {
@@ -52,7 +58,29 @@ const Dashboard = ({ isAuthenticated, setIsAuthenticated }) => {
     history.push("/");
   };
 
-  useEffect(() => handleUser(params.id), [params.id]);
+  useEffect(() => {
+    let cancel = false;
+
+    api
+      .get(`/users/${params.id}`)
+      .then((response) => {
+        if (cancel) {
+          return;
+        }
+
+        setUser(response.data);
+      })
+      .catch((error) =>
+        toast.error(
+          "Não foi possível carregar suas tecnologias, tente novamente!",
+          { theme: "dark" }
+        )
+      );
+
+    return () => {
+      cancel = true;
+    };
+  }, [params.id]);
 
   return isAuthenticated ? (
     <>
