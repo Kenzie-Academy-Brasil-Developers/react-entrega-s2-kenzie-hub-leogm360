@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: absolute;
-  z-index: 99999;
+  z-index: 1;
   display: flex;
   background: rgba(255, 255, 255, 0.1);
   justify-content: center;

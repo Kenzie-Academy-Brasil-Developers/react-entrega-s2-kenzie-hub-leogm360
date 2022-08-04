@@ -1,11 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
-import { useState } from "react";
 
 import Router from "./routes/router.jsx";
 
 import { Reset } from "./styles/reset.js";
 import { RootVariables } from "./styles/root-variables.js";
 import { GlobalStyles } from "./styles/global.js";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -13,6 +13,8 @@ const App = () => {
       <Reset />
       <RootVariables />
       <GlobalStyles />
+
+      <ToastContainer style={{ zIndex: 99999 }} />
 
       <Router />
     </BrowserRouter>

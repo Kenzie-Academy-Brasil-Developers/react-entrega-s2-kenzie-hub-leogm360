@@ -2,7 +2,7 @@ import api from "../../services/api";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import { Container, RegisterContainer, Header, Title, Form } from "./index";
 import Button from "../Button/index.jsx";
@@ -40,15 +40,12 @@ const ModalRegister = ({
         callback(...argumentsArray);
       })
       .catch((error) => {
-        console.log(error.response);
         toast.error("A tecnologia já existe!", { theme: "dark" });
       });
   };
 
   return (
     <Container>
-      <ToastContainer />
-
       <RegisterContainer>
         <Header>
           <Title>Cadastrar Tecnologia</Title>

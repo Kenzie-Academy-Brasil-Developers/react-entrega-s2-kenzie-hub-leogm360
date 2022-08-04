@@ -2,7 +2,7 @@ import api from "../../services/api";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import {
   Container,
@@ -50,9 +50,11 @@ const ModalDetails = ({
           });
 
           callback(...argumentsArray);
+
+          setIsModalDetailsOpen(false);
         })
         .catch((error) =>
-          toast.error("Não é possível atualizar uma tecnologia inexistente!", {
+          toast.error("Erro ao atualizar tecnologia! Tente novamente.", {
             theme: "dark",
           })
         );
@@ -67,9 +69,11 @@ const ModalDetails = ({
           toast.success("Tecnologia excluida com sucesso!", { theme: "dark" });
 
           callback(...argumentsArray);
+
+          setIsModalDetailsOpen(false);
         })
         .catch((error) =>
-          toast.error("Não é possível atualizar uma tecnologia inexistente!", {
+          toast.error("Erro ao deletar tecnologia! Tente novamente.", {
             theme: "dark",
           })
         );
@@ -78,8 +82,6 @@ const ModalDetails = ({
 
   return (
     <Container>
-      <ToastContainer />
-
       <RegisterContainer>
         <Header>
           <Title>Tecnologia Detalhes</Title>
